@@ -6,11 +6,11 @@ Round 1: Silly Rule
 
 Round 2: Sensible Rule
 - Rule: If `mean radius` > 15, classify as malignant; otherwise, classify as benign.
-- Validation Results: Improved accuracy but still had misclassifications.
+- Validation Results: Accuracy ~ 75%  Improved accuracy but still had misclassifications.
 
 Round 3: More Sophisticated Rule
 - Rule: If `mean radius` > 15 and `worst radius` > 15, classify as malignant.
-- Validation Results: Higher accuracy, but some false positives/negatives remain.
+- Validation Results: Accuracy ~ 85% Higher accuracy, but some false positives/negatives remain.
 
 Perfect Harmony Rule
 - Rule: Consider a balanced combination of `mean concavity`, `worst compactness`, and `mean symmetry` to predict malignancy.
@@ -25,6 +25,9 @@ Final Rule (Selected for Test Set)
 - Rule: A combination of size, compactness, concavity, and symmetry.
 - Formula: If (`mean radius` > 15 AND `worst compactness` > 0.2 AND `mean concavity` > 0.1) OR (`worst symmetry` < 0.2), classify as malignant.
 - Test Set Evaluation: Highest accuracy with the best generalization to new data.
+
+
+Among Round 1, Round 2, and Round 3, Round 3 has the highest accuracy and is the best rule. Unlike Round 1, which relies on random classification, and Round 2, which uses a single feature (mean radius), Round 3 improves accuracy by incorporating both mean radius and worst radius. This additional feature helps refine the classification, reducing misclassifications and making the rule more reliable. While some false positives and negatives remain, Round 3 outperforms the previous rounds, making it the most effective rule among the three.
 
 Reflection:
 This experiment demonstrated the importance of training, validation, and test sets. Initial rules were arbitrary, but refining them through validation led to more effective classification. The final rule generalizes well without overfitting to the training data. Understanding feature relationships is key in machine learning classification tasks.
