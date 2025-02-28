@@ -1,1 +1,31 @@
-HI
+Results from Classification Rules Experiment
+
+Round 1: Silly Rule
+- Rule: If the sample index is odd, classify as malignant.
+- Validation Results: Accuracy ~ 50% (random chance, ineffective rule)
+
+Round 2: Sensible Rule
+- Rule: If `mean radius` > 15, classify as malignant; otherwise, classify as benign.
+- Validation Results: Improved accuracy but still had misclassifications.
+
+Round 3: More Sophisticated Rule
+- Rule: If `mean radius` > 15 and `worst radius` > 15, classify as malignant.
+- Validation Results: Higher accuracy, but some false positives/negatives remain.
+
+Perfect Harmony Rule
+- Rule: Consider a balanced combination of `mean concavity`, `worst compactness`, and `mean symmetry` to predict malignancy.
+- Formula: If (`mean concavity` > 0.1 AND `worst compactness` > 0.2) OR (`mean symmetry` < 0.18), classify as malignant.
+- Validation Results: Good balance between precision and recall.
+
+Large Tumor Size Rule
+- Rule: If `mean radius` > 16 and `mean area` > 800, classify as malignant.
+- Validation Results: Effective for identifying large tumors but missed some small malignant ones.
+
+Final Rule (Selected for Test Set)
+- Rule: A combination of size, compactness, concavity, and symmetry.
+- Formula: If (`mean radius` > 15 AND `worst compactness` > 0.2 AND `mean concavity` > 0.1) OR (`worst symmetry` < 0.2), classify as malignant.
+- Test Set Evaluation: Highest accuracy with the best generalization to new data.
+
+Reflection:
+This experiment demonstrated the importance of training, validation, and test sets. Initial rules were arbitrary, but refining them through validation led to more effective classification. The final rule generalizes well without overfitting to the training data. Understanding feature relationships is key in machine learning classification tasks.
+
